@@ -13,13 +13,17 @@ public abstract class Employee_wage {
 		
 		System.out.println("Welcome to employee wage computation");
 	
-		// TYPE CASTING - To check if employee is present or absent
-		int employeeCheck1 = (int) (Math.floor(Math.random()*10)%2);
+		// TYPE CASTING - To check if employee worked full time, part time or not
+		int employeeCheck1 = (int) (Math.floor(Math.random()*10)%3);
 	
 		if(employeeCheck1==0) {
-			System.out.println("\nEmployee is present");
+			System.out.println("\nEmployee is present and worked full time");
 			total_hours=8;
 		}	
+		else if(employeeCheck1==1) {
+			System.out.println("\nEmployee is present and worked part time");
+			total_hours=4;
+		}
 		else
 			System.out.println("\nEmployee is absent");
 	
