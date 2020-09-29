@@ -16,14 +16,19 @@ public abstract class Employee_wage {
 		int total_wage=0;
 		int number_of_days = 0;
 		int total_hours_worked=0;
-				
+		
+		//Welcome Message
 		System.out.println("Welcome to employee wage computation");
-				
+		
+		//Condition to check until when to compute employee wages for a month
+		//Number of days worked not more than 20
+		//Number of hours worked not more than 100
 		while(number_of_days<MAX_WORK_DAYS && total_hours_worked<MAX_HOURS_WORKED) {
 			// TYPE CASTING - To check if employee worked full time, part time or not
+			//Random to check in random if employee worked full time,part time or was absent
 			int employeeCheck1 = (int) (Math.floor(Math.random()*10)%3);
 			
-			//Solving using switch case
+			//Computing hours worked based on random result using switch case
 			switch(employeeCheck1) {
 			case IS_FULL_TIME :
 				System.out.println("\nEmployee is present and worked full time");
