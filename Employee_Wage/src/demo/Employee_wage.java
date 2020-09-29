@@ -1,4 +1,5 @@
 package demo;
+import java.util.*;
 
 public abstract class Employee_wage {
 	
@@ -6,10 +7,8 @@ public abstract class Employee_wage {
 	public static final int EMP_RATE_PER_HOUR = 20;
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	public static final int MAX_WORK_DAYS = 20;
-	public static final int MAX_HOURS_WORKED = 100;
 	
-	public static void Compute_wage() {
+	public static void Compute_wage(int i, int j) {
 		//Variables
 		int total_hours=0;
 		int daily_wage=0;
@@ -23,7 +22,8 @@ public abstract class Employee_wage {
 		//Condition to check until when to compute employee wages for a month
 		//Number of days worked not more than 20
 		//Number of hours worked not more than 100
-		while(number_of_days<MAX_WORK_DAYS && total_hours_worked<MAX_HOURS_WORKED) {
+		while(number_of_days<j && total_hours_worked<i) {
+
 			// TYPE CASTING - To check if employee worked full time, part time or not
 			//Random to check in random if employee worked full time,part time or was absent
 			int employeeCheck1 = (int) (Math.floor(Math.random()*10)%3);
@@ -57,6 +57,12 @@ public abstract class Employee_wage {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Compute_wage();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the maximum number of working hours in a month");
+		int MAX_HOURS_WORKED=sc.nextInt();
+		System.out.println("Enter the maximum number of working days in a month");
+		int MAX_WORK_DAYS=sc.nextInt();
+		
+		Compute_wage(MAX_HOURS_WORKED, MAX_WORK_DAYS);
 	}	
 }
