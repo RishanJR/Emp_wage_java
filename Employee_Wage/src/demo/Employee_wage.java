@@ -45,7 +45,7 @@ public class Employee_wage {
 			number_of_days++;
 			total_hours_worked=total_hours_worked+total_hours;
 		}
-		System.out.println(com_name);
+		System.out.println("\n"+com_name);
 		System.out.print("Daily wages of employee are "+Arrays.toString(daily_wage));
 		System.out.println("\nThe total wages earned by the employee is "+total_wage);
 		System.out.println("The total hours worked in the month is "+total_hours_worked);
