@@ -82,9 +82,11 @@ class company_info{
 public class Employee_wage {
 
 	ArrayList<company_info> company;
+	Map<String, company_info> mapping;
 	
 	public Employee_wage() {
 		company = new ArrayList<company_info>();
+		mapping = new HashMap<String, company_info>();
 	}
 	
 	public void add_company() {
@@ -111,6 +113,7 @@ public class Employee_wage {
 			if(compName.equals(c.name)) {
 				count=1;
 				c.Compute_wage();
+				mapping.put(c.name, c);
 			}
 		}
 		if(count==0) {
@@ -130,6 +133,10 @@ public class Employee_wage {
 			}
 	}
 	
+	public void fetch_total_wages(String company) {
+		System.out.println("The company "+company+" total wage is "+mapping.get(company).get_tot_wages());
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int ans;
@@ -142,7 +149,7 @@ public class Employee_wage {
 		
 		do {
 			Scanner sc=new Scanner(System.in);
-			System.out.println("\nEnter 1 to add company details or 2 to compute the wages for the company or 3 to exit the program or 4 to print the company list");
+			System.out.println("\nEnter 1 to add company details or 2 to compute the wages for the company or 3 to get the total wages of a particular company or 4 to print the company list or 5 to exit the programto print the company list");
 			ans=sc.nextInt();
 			switch (ans) {
 			case 1:
@@ -154,11 +161,16 @@ public class Employee_wage {
 				emp.search_company(name);
 				break;
 			case 3:
-				System.out.println("Exiting the program");
+				System.out.println("Enter the name of the company you want the total wages");
+				name = sc.next();
+				emp.fetch_total_wages(name);
 				break;
 			case 4:
 				System.out.println("Company details");
 				emp.print_company();
+				break;
+			case 5:
+				System.out.println("Exiting the program");
 				break;
 			default:
 				System.out.println("Not a valid option");
